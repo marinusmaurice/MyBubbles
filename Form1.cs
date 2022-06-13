@@ -30,7 +30,7 @@ namespace MyBubbles
             CreateBubble(Properties.Resources.Pink, "Pink");
             CreateBubble(Properties.Resources.Red, "Red");
             CreateBubble(Properties.Resources.Violate, "Violate");
-            CreateBubble(Properties.Resources.Yellow, "Yellow");
+            CreateBubble(Properties.Resources.Yellow, "Yellow"); 
         }
 
         public void CreateBubble(Bitmap bitmap, string name)
@@ -87,12 +87,22 @@ namespace MyBubbles
 
         private void button3_Click(object sender, EventArgs e)
         {
+            FreeBubbles();
+        }
+
+        private void FreeBubbles()
+        {
             Stop();
             foreach (var item in bubbleList)
             {
                 item.Dispose();
             }
             bubbleList.Clear();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FreeBubbles();
         }
     }
 }
